@@ -1,0 +1,167 @@
+--- a/d:\full stack\02 - Introduction to HTML\2.1 Heading Element\indx.html
++++ b/d:\full stack\02 - Introduction to HTML\2.1 Heading Element\indx.html
+@@ -4,7 +4,108 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>مصنع الموناليزا للملابس</title>
+     <link rel="stylesheet" href="style.css">
++    <style>
++        body {
++            font-family: 'Arial', sans-serif;
++            line-height: 1.6;
++            margin: 0;
++            padding: 0;
++            background-color: #f4f4f4;
++            color: #333;
++            direction: rtl; /* For Arabic language */
++        }
++
++        header {
++            background: #333;
++            color: #fff;
++            padding: 1rem 0;
++            text-align: center;
++        }
++
++        header h1 {
++            margin: 0;
++            font-size: 2.5rem;
++        }
++
++        nav ul {
++            padding: 0;
++            list-style: none;
++            text-align: center;
++        }
++
++        nav ul li {
++            display: inline;
++            margin-right: 20px; /* Adjust spacing for RTL */
++        }
++
++        nav ul li:last-child {
++            margin-right: 0;
++        }
++
++        nav ul li a {
++            color: #fff;
++            text-decoration: none;
++            font-size: 1.1rem;
++        }
++
++        nav ul li a:hover {
++            text-decoration: underline;
++        }
++
++        main {
++            padding: 20px;
++            max-width: 1200px;
++            margin: 20px auto;
++            background: #fff;
++            box-shadow: 0 0 10px rgba(0,0,0,0.1);
++        }
++
++        main h2 {
++            text-align: center;
++            color: #333;
++            margin-bottom: 20px;
++        }
++
++        .product-list {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
++            gap: 20px;
++        }
++
++        .product-item {
++            border: 1px solid #ddd;
++            padding: 15px;
++            text-align: center;
++            background: #fff;
++        }
++
++        .product-item img {
++            max-width: 100%;
++            height: auto;
++            margin-bottom: 10px;
++            border-bottom: 1px solid #eee;
++            padding-bottom: 10px;
++        }
++
++        .product-item h3 {
++            font-size: 1.5rem;
++            margin-bottom: 10px;
++        }
++
++        .product-item p {
++            font-size: 0.9rem;
++            color: #666;
++            margin-bottom: 10px;
++        }
++
++        .product-item span {
++            display: block;
++            font-weight: bold;
++            color: #e8491d;
++            margin-bottom: 10px;
++            font-size: 1.2rem;
++        }
++
++        .product-item button {
++            background: #e8491d;
++            color: #fff;
++            border: none;
++            padding: 10px 15px;
++            cursor: pointer;
++            font-size: 1rem;
++            border-radius: 5px;
++        }
++
++        .product-item button:hover {
++            background: #333;
++        }
++
++        footer {
++            text-align: center;
++            padding: 20px;
++            background: #333;
++            color: #fff;
++            margin-top: 20px;
++        }
++    </style>
+ </head>
+ <body>
+     <header>
+@@ -48,6 +149,27 @@
+         <p>&copy; 2023 مصنع الموناليزا للملابس. جميع الحقوق محفوظة.</p>
+     </footer>
+ 
+-    <script src="script.js"></script>
++    <script>
++        document.addEventListener('DOMContentLoaded', function() {
++            console.log("موقع مصنع الموناليزا جاهز!");
++
++            const buttons = document.querySelectorAll('.product-item button');
++            buttons.forEach(button => {
++                button.addEventListener('click', function() {
++                    const productItem = this.closest('.product-item'); // Get the parent article
++                    const productName = productItem.querySelector('h3').textContent;
++                    alert(`تمت إضافة "${productName}" إلى عربة التسوق! (وظيفة تجريبية)`);
++                });
++            });
++
++            // Example: Smooth scroll for navigation links (if they point to sections on the same page)
++            const navLinks = document.querySelectorAll('nav ul li a');
++            navLinks.forEach(link => {
++                link.addEventListener('click', function(e) {
++                    // Example: log to console, actual scroll implementation would need section IDs
++                    if (this.getAttribute('href') === '#') {
++                        // e.preventDefault(); // Prevent default if it's just a placeholder
++                        console.log(`تم النقر على رابط التنقل: ${this.textContent}`);
++                    }
++                });
++            });
++        });
++    </script>
+ </body>
+ </html>
+

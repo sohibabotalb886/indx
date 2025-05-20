@@ -1,0 +1,4 @@
+.vscode/
+*.lnk
+argv.json
+extensions/
